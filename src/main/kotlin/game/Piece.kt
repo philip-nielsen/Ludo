@@ -1,13 +1,25 @@
 package game
 
-import kotlin.properties.Delegates
 import kotlin.random.Random
 
-open class Piece(home: Int, colour: Int, place: Int) {
-    open var place by Delegates.notNull<Int>()
+open class Piece {
+    open val home: Int = 0
+    open val colour: String = ""
+    var place: Int = home
+
     fun move(): Int  {
         val result = Random.nextInt(1,6)
-        place += result
+        for (i in 1 .. result) {
+            place++
+        }
         return result
+    }
+
+    fun checkIfBack(): Boolean {
+        return place == home
+    }
+
+    fun checkPiece(piece: Piece): Boolean {
+        return piece.colour.equals(colour)
     }
 }
