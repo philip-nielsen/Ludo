@@ -9,15 +9,11 @@ open class Piece {
 
     fun move(): Int  {
         val result = Random.nextInt(1,6)
-        for (i in 1 .. result) {
-            place++
-        }
+        place += result
         return result
     }
 
-    fun checkIfBack(): Boolean {
-        return place == home
-    }
+    open fun checkIfBack(): Boolean {return true}
 
     fun checkPiece(piece: Piece): Boolean {
         return piece.colour.equals(colour)

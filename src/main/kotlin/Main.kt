@@ -2,6 +2,8 @@ import game.*
 fun main(args: Array<String>) {
     println("Hello World!")
     val grön = GreenPiece()
+
+
     println(grön.place)
     grön.move()
     println(grön.place)

@@ -1,17 +1,26 @@
 package TestPieces
 
-import game.GreenPiece
+import game.*
 import org.junit.jupiter.api.Test
 import org.testng.annotations.BeforeTest
 import kotlin.test.assertEquals
 
 class TestPiece {
 
-    val green = GreenPiece()
+    lateinit var green: GreenPiece
+    lateinit var board: ArrayList<Piece>
+
 
     @BeforeTest
     fun beforeTest() {
-
+        green = GreenPiece()
+        board = ArrayList()
+        for (i in 1..4) {
+            board.add(GreenPiece())
+            board.add(RedPiece())
+            board.add(YellowPiece())
+            board.add(BluePiece())
+        }
     }
 
     @Test
